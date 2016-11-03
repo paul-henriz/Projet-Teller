@@ -12,12 +12,13 @@
 int sigma_v1();
 int teller();
 int iterated_teller();
+int is_prime_v1();
 
 int main(int argc, const char * argv[]) {
     int x;
     printf("nombre");
     scanf ("%d", &x);
-    return iterated_teller(x);
+    return is_prime_v1(x);
 }
 
 
@@ -56,6 +57,13 @@ int iterated_teller(int x){
     while (x != teller(x)){
         x = teller(x);
     }
-    printf("%d\n", x);
+    printf("H(x) = %d\n", x);
+    return 0;
+}
+int is_prime_v1(int x){
+    if (teller(x) == x){
+        printf("%d est premier\n", x);
+    }
+    else printf("%d n'est pas premier\n", x);
     return 0;
 }
