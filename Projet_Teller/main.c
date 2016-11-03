@@ -9,12 +9,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/* Annonce des fonction */
 int sigma_v1();
 int teller();
 void iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
 
+
+
+/* Déclaration de la fonction principale */
 int main(int argc, const char * argv[]) {
     //int x;
     //printf("nombre");
@@ -22,6 +27,12 @@ int main(int argc, const char * argv[]) {
     return iterated_teller_1000();
 }
 
+
+
+/* Déclaration des fonctions secondaires */
+
+
+/* Sigma_v1 calcule la somme des diviseurs d'un nombre en incluant 1 */
 
 int sigma_v1(int x){
     int i = 1, s = 0;
@@ -39,6 +50,9 @@ int sigma_v1(int x){
     return s;
 }
 
+
+/* Teller calcule la somme des diviseurs d'un nombre en exluant 1 */
+
 int teller(int x){
     int i = 2, s = 0;
     do
@@ -54,6 +68,9 @@ int teller(int x){
     //printf("%d\n", s);
     return s;
 }
+
+
+/* Iterated_Teller applique la fonction Teller de manière récursive */
 void iterated_teller(int x){
     int i = x;
     while (i != teller(i)){
@@ -62,6 +79,8 @@ void iterated_teller(int x){
     printf("H(%d) = %d\n", x, i);
     //return 0;
 }
+
+/* Is_Prime_V1 permet de déterminer si un nombre est premier grâce à la fonction Teller */
 int is_prime_v1(int x){
     if (teller(x) == x){
         printf("%d est premier\n", x);
@@ -69,6 +88,8 @@ int is_prime_v1(int x){
     else printf("%d n'est pas premier\n", x);
     return 0;
 }
+
+/* Calcule les termes de 1 à 1000 de la fonction Telelr */
 int iterated_teller_1000(){
     int i;
     for(i = 1; i <= 1000; i++){
