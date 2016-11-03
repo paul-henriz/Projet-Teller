@@ -11,7 +11,7 @@
 
 int sigma_v1();
 int teller();
-int iterated_teller();
+void iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
 
@@ -54,13 +54,13 @@ int teller(int x){
     //printf("%d\n", s);
     return s;
 }
-int iterated_teller(int x){
+void iterated_teller(int x){
     int i = x;
     while (i != teller(i)){
         i = teller(i);
     }
     printf("H(%d) = %d\n", x, i);
-    return 0;
+    //return 0;
 }
 int is_prime_v1(int x){
     if (teller(x) == x){
@@ -72,7 +72,7 @@ int is_prime_v1(int x){
 int iterated_teller_1000(){
     int i;
     for(i = 1; i <= 1000; i++){
-        printf("%d", iterated_teller(i));
+        iterated_teller(i);
     }
     return 0;
 }
