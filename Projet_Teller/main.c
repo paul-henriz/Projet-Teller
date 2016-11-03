@@ -11,12 +11,13 @@
 
 int sigma_v1();
 int teller();
+int iterated_teller();
 
 int main(int argc, const char * argv[]) {
     int x;
     printf("nombre");
     scanf ("%d", &x);
-    return teller(x);
+    return iterated_teller(x);
 }
 
 
@@ -31,7 +32,7 @@ int sigma_v1(int x){
             s = s + i;
         }
         i++;
-    }while (i <= (x/2));
+    }while (i <= x);
     printf("%d\n", s);
     return s;
 }
@@ -47,7 +48,14 @@ int teller(int x){
             s = s + i;
         }
         i++;
-    }while (i <= (x/2));
-    printf("%d\n", s);
+    }while (i <= x);
+    //printf("%d\n", s);
     return s;
+}
+int iterated_teller(int x){
+    while (x != teller(x)){
+        x = teller(x);
+    }
+    printf("%d\n", x);
+    return 0;
 }
