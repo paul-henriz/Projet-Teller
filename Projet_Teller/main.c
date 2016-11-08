@@ -17,6 +17,7 @@ void iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
 int premier();
+int deficient();
 
 
 
@@ -35,6 +36,7 @@ int main(int argc, const char * argv[]) {
     //scanf ("%d", &x);
     //return iterated_teller_1000();
     //premier(101);
+    deficient(13);
     return 0;
     
 }
@@ -58,7 +60,7 @@ int sigma_v1(int x){
         }
         i++;
     }while (i <= x);
-    printf("%d\n", s);
+    //printf("%d\n", s);
     return s;
 }
 
@@ -115,6 +117,16 @@ int premier(int n){
     for (i = 0; i < (n + 1); i++) {
         if (teller(i) == i){
             printf("%d\n", i);
+        }
+    }
+    return 0;
+}
+
+int deficient(int n){
+    int i = 0;
+    for (i = 0; i < (n + 1); i++) {
+        if (sigma_v1(i) < 2*i){
+            printf("%d est déficient\n", i);
         }
     }
     return 0;
