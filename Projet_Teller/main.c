@@ -19,6 +19,8 @@ int iterated_teller_1000();
 int premier();
 int deficient();
 int parfait();
+int abondant();
+//int superabondant();
 
 
 
@@ -37,7 +39,7 @@ int main(int argc, const char * argv[]) {
     //scanf ("%d", &x);
     //return iterated_teller_1000();
     //premier(101);
-    parfait(500);
+    //superabondant(50);
     return 0;
     
 }
@@ -114,7 +116,7 @@ int iterated_teller_1000(){
 }
 
 int premier(int n){
-    int i = 0;
+    int i;
     for (i = 0; i < (n + 1); i++) {
         if (teller(i) == i){
             printf("%d\n", i);
@@ -124,7 +126,7 @@ int premier(int n){
 }
 
 int deficient(int n){
-    int i = 0;
+    int i;
     for (i = 0; i < (n + 1); i++) {
         if (sigma_v1(i) < 2*i){
             printf("%d est déficient\n", i);
@@ -134,7 +136,7 @@ int deficient(int n){
 }
 
 int parfait(int n){
-    int i = 0;
+    int i;
     for (i = 0; i < (n + 1); i++) {
         if ((sigma_v1(i) - i) == i){
             printf("%d est parfait\n", i);
@@ -142,3 +144,26 @@ int parfait(int n){
     }
     return 0;
 }
+
+int abondant(int n){
+    int i;
+    for (i = 1; i < (n + 1); i++) {
+        if (sigma_v1(i) > 2*i){
+            printf("%d est abondant\n", i);
+        }
+    }
+    return 0;
+}
+
+//int superabondant(int n){
+//    int i;
+//    int m;
+//    for (i = 1; i < (n + 1); i++) {
+//        for (m = 1; m < i; m++){
+//            if (((sigma_v1(m))/ (m)) < ((sigma_v1(i))/ i)){
+//                printf("%d est superabondant\n", i);
+//            }
+//        }
+//    }
+//    return 0;
+//}
