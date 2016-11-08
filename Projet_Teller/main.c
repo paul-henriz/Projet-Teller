@@ -18,6 +18,7 @@ int is_prime_v1();
 int iterated_teller_1000();
 int premier();
 int deficient();
+int parfait();
 
 
 
@@ -36,7 +37,7 @@ int main(int argc, const char * argv[]) {
     //scanf ("%d", &x);
     //return iterated_teller_1000();
     //premier(101);
-    deficient(13);
+    parfait(500);
     return 0;
     
 }
@@ -132,3 +133,12 @@ int deficient(int n){
     return 0;
 }
 
+int parfait(int n){
+    int i = 0;
+    for (i = 0; i < (n + 1); i++) {
+        if ((sigma_v1(i) - i) == i){
+            printf("%d est parfait\n", i);
+        }
+    }
+    return 0;
+}
