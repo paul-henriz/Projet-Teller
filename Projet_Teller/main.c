@@ -16,15 +16,27 @@ int teller();
 void iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
+int premier();
 
 
 
 /* Déclaration de la fonction principale */
 int main(int argc, const char * argv[]) {
+    int choix;
+    printf("--- Menu ---\n\n");
+    printf("1. Lancer sigma_v1\n");
+    printf("2. Lancer teller\n");
+    printf("3. Lancer iterated_teller\n");
+    printf("4. Lancer is_prime_v1\n");
+    printf("5. LAncer iterated_teller(1000)\n");
+    //scanf("%d", &choix);
     //int x;
     //printf("nombre");
     //scanf ("%d", &x);
-    return iterated_teller_1000();
+    //return iterated_teller_1000();
+    //premier(101);
+    return 0;
+    
 }
 
 
@@ -97,3 +109,14 @@ int iterated_teller_1000(){
     }
     return 0;
 }
+
+int premier(int n){
+    int i = 0;
+    for (i = 0; i < (n + 1); i++) {
+        if (teller(i) == i){
+            printf("%d\n", i);
+        }
+    }
+    return 0;
+}
+
