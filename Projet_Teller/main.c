@@ -3,12 +3,12 @@
 //  Projet_Teller
 //
 //  Created by Paul-Henri on 03/11/2016.
-//  Copyright © 2016 Test. All rights reserved.
+//  Copyright © 2016 Paul-Henri Zimmerlin. All rights reserved.
 //
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 /* Annonce des fonction */
 int sigma_v1();
@@ -39,9 +39,15 @@ int main(int argc, const char * argv[]) {
     printf("9. Affichers les nombres abondants jusqu'à un rang\n");
     scanf("%d", &choix);
     if (choix == 1){
+        double total_time;
+        clock_t start, end;
+        start = clock();
         printf("Calculer la somme des diviseurs de quel nombre ?\n");
         scanf("%d", &arg);
         printf("La somme des diviseurs (sans lui-même) de %d vaut %d\n", arg, sigma_v1(arg));
+        end = clock();
+        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+        printf("\nExécuté en %f secondes\n", total_time);
     }
     else if (choix == 2){
         printf("Calculer teller de quel nombre ?\n");
@@ -60,23 +66,47 @@ int main(int argc, const char * argv[]) {
         else printf("%d n'est pas premier\n", arg);
     }
     else if (choix == 5){
+        double total_time;
+        clock_t start, end;
+        start = clock();
         printf("Voici les termes de 1 à 1000 de la fonction iterated_Teller");
         iterated_teller_1000();
+        end = clock();
+        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+        printf("\nExécuté en %f secondes\n", total_time);
     }
     else if (choix == 6){
+        double total_time;
+        clock_t start, end;
+        start = clock();
         printf("Afficher les nombres premiers jusqu'à combien ?\n");
         scanf("%d", &arg);
         printf("%d", premier(arg));
+        end = clock();
+        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+        printf("\nExécuté en %f secondes\n", total_time);
     }
     else if (choix == 7){
+        double total_time;
+        clock_t start, end;
+        start = clock();
         printf("Afficher les nombres déficients jusqu'à combien ?\n");
         scanf("%d", &arg);
         printf("%d", deficient(arg));
+        end = clock();
+        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+        printf("\nExécuté en %f secondes\n", total_time);
     }
     else if (choix == 8){
+        double total_time;
+        clock_t start, end;
+        start = clock();
         printf("Afficher les nombres parfaits jusqu'à combien ?\n");
         scanf("%d", &arg);
         printf("%d", parfait(arg));
+        end = clock();
+        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+        printf("\nExécuté en %f secondes\n", total_time);
     }
     else if (choix == 9){
         printf("Afficher les nombres abondants jusqu'à combien ?\n");
@@ -192,12 +222,18 @@ int parfait(int n){
 
 /* Liste les entiers abondants jusqu'au rang n */
 int abondant(int n){
+    double total_time;
+    clock_t start, end;
+    start = clock();
     int i;
     for (i = 1; i < (n + 1); i++) {
         if (sigma_v1(i) > 2*i){
             printf("%d\n", i);
         }
     }
+    end = clock();
+    total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+    printf("\nExécuté en %f secondes\n", total_time);
     return 0;
 }
 
