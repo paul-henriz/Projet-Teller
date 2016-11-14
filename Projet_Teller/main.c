@@ -190,7 +190,7 @@ int parfait(int n){
     return 0;
 }
 
-/* List les entiers abondants jusqu'au rang n */
+/* Liste les entiers abondants jusqu'au rang n */
 int abondant(int n){
     int i;
     for (i = 1; i < (n + 1); i++) {
@@ -200,6 +200,7 @@ int abondant(int n){
     }
     return 0;
 }
+
 int sigma_v2(int n){
     int tt = 0;
     int i = 1;
