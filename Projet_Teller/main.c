@@ -13,27 +13,48 @@
 /* Annonce des fonction */
 int sigma_v1();
 int teller();
-void iterated_teller();
+int iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
 int premier();
 int deficient();
 int parfait();
 int abondant();
-//int superabondant();
+int superabondant();
 
 
 
 /* Déclaration de la fonction principale */
 int main(int argc, const char * argv[]) {
-    int choix;
+    int choix, arg;
     printf("--- Menu ---\n\n");
     printf("1. Lancer sigma_v1\n");
     printf("2. Lancer teller\n");
     printf("3. Lancer iterated_teller\n");
     printf("4. Lancer is_prime_v1\n");
     printf("5. LAncer iterated_teller(1000)\n");
-    //scanf("%d", &choix);
+    scanf("%d", &choix);
+    if (choix == 1){
+        printf("Calculer la somme des diviseurs de quel nombre ?\n");
+        scanf("%d", &arg);
+        printf("La somme des diviseurs (sans lui-même) de %d vaut %d\n", arg, sigma_v1(arg));
+    }
+    else if (choix == 2){
+        printf("Calculer teller de quel nombre ?\n");
+        scanf("%d", &arg);
+        printf("Teller de %d vaut %d\n", arg, teller(arg));
+    }
+    else if (choix == 3){
+        printf("Calculer teller_iterated de quel nombre ?\n");
+        scanf("%d", &arg);
+        printf("iterated_teller de %d vaut %d\n", arg, iterated_teller(arg));
+    }
+    else if (choix == 4){
+        printf("Sur quel nombre exécute-t-on le test de primalité à partir de la fonction teller ?\n");
+        scanf("%d", &arg);
+        if (is_prime_v1(arg) == 0) printf("%d est premier\n", arg);
+        else printf("%d n'est pas premier\n", arg);
+    }
     //int x;
     //printf("nombre");
     //scanf ("%d", &x);
@@ -88,22 +109,20 @@ int teller(int x){
 
 
 /* Iterated_Teller applique la fonction Teller de manière récursive */
-void iterated_teller(int x){
+int iterated_teller(int x){
     int i = x;
     while (i != teller(i)){
         i = teller(i);
     }
-    printf("H(%d) = %d\n", x, i);
-    //return 0;
+    return i;
 }
 
 /* Is_Prime_V1 permet de déterminer si un nombre est premier grâce à la fonction Teller */
 int is_prime_v1(int x){
     if (teller(x) == x){
-        printf("%d est premier\n", x);
+        return 0;
     }
-    else printf("%d n'est pas premier\n", x);
-    return 0;
+    else return 1;
 }
 
 /* Calcule les termes de 1 à 1000 de la fonction Telelr */
@@ -154,16 +173,34 @@ int abondant(int n){
     }
     return 0;
 }
+int sigma_v2(int n){
+    int tt = 0;
+    int i = 1;
+    while (i*i < n){
+        if (n%i == 0){
+            tt+=(i + n/i);
+            i+=1;
+        }
+        
+        if (i*i == n){
+            tt+=i;
+        }
+    }
+    return tt;
+}
 
-//int superabondant(int n){
-//    int i;
-//    int m;
-//    for (i = 1; i < (n + 1); i++) {
-//        for (m = 1; m < i; m++){
-//            if (((sigma_v1(m))/ (m)) < ((sigma_v1(i))/ i)){
-//                printf("%d est superabondant\n", i);
-//            }
-//        }
-//    }
-//    return 0;
-//}
+int superabondant(){
+    int n = 50;
+    int i;
+    int m;
+    int anterieur = 1;
+    for (i = 1; i < (n + 1); i++) {
+        m = anterieur;
+        if ((sigma_v2(m)/ m) < (sigma_v2(i)/ i)){
+            printf("%d est superabondant %d\n", i, m);
+            anterieur = i;
+        }
+        printf("On est à %d %d\n", i, m);
+    }
+    return 0;
+}
