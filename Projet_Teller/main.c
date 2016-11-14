@@ -24,7 +24,7 @@ int superabondant();
 
 
 
-/* Déclaration de la fonction principale */
+/* Déclaration de la fonction principale et du menu de sélection */
 int main(int argc, const char * argv[]) {
     int choix, arg;
     printf("--- Menu ---\n\n");
@@ -32,7 +32,11 @@ int main(int argc, const char * argv[]) {
     printf("2. Lancer teller\n");
     printf("3. Lancer iterated_teller\n");
     printf("4. Lancer is_prime_v1\n");
-    printf("5. LAncer iterated_teller(1000)\n");
+    printf("5. Lancer iterated_teller(1000)\n");
+    printf("6. Affichers les nombres premiers jusqu'à un rang\n");
+    printf("7. Affichers les nombres deficients jusqu'à un rang\n");
+    printf("8. Affichers les nombres parfaits jusqu'à un rang\n");
+    printf("9. Affichers les nombres abondants jusqu'à un rang\n");
     scanf("%d", &choix);
     if (choix == 1){
         printf("Calculer la somme des diviseurs de quel nombre ?\n");
@@ -55,11 +59,30 @@ int main(int argc, const char * argv[]) {
         if (is_prime_v1(arg) == 0) printf("%d est premier\n", arg);
         else printf("%d n'est pas premier\n", arg);
     }
-    //int x;
-    //printf("nombre");
-    //scanf ("%d", &x);
-    //return iterated_teller_1000();
-    //premier(101);
+    else if (choix == 5){
+        printf("Voici les termes de 1 à 1000 de la fonction iterated_Teller");
+        iterated_teller_1000();
+    }
+    else if (choix == 6){
+        printf("Afficher les nombres premiers jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        printf("%d", premier(arg));
+    }
+    else if (choix == 7){
+        printf("Afficher les nombres déficients jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        printf("%d", deficient(arg));
+    }
+    else if (choix == 8){
+        printf("Afficher les nombres parfaits jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        printf("%d", parfait(arg));
+    }
+    else if (choix == 9){
+        printf("Afficher les nombres abondants jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        printf("%d", abondant(arg));
+    }
     //superabondant(50);
     return 0;
     
@@ -125,15 +148,16 @@ int is_prime_v1(int x){
     else return 1;
 }
 
-/* Calcule les termes de 1 à 1000 de la fonction Telelr */
+/* Calcule les termes de 1 à 1000 de la fonction Teller */
 int iterated_teller_1000(){
     int i;
     for(i = 1; i <= 1000; i++){
-        iterated_teller(i);
+        printf("H(%d) = %d\n", i, iterated_teller(i));
     }
     return 0;
 }
 
+/* Liste les entiers premiers jusqu'au rang n */
 int premier(int n){
     int i;
     for (i = 0; i < (n + 1); i++) {
@@ -144,31 +168,34 @@ int premier(int n){
     return 0;
 }
 
+/* Liste les entiers déficients jusqu'au rang n */
 int deficient(int n){
     int i;
     for (i = 0; i < (n + 1); i++) {
         if (sigma_v1(i) < 2*i){
-            printf("%d est déficient\n", i);
+            printf("%d\n", i);
         }
     }
     return 0;
 }
 
+/* Liste les entiers parfaits jusqu'au rang n */
 int parfait(int n){
     int i;
     for (i = 0; i < (n + 1); i++) {
         if ((sigma_v1(i) - i) == i){
-            printf("%d est parfait\n", i);
+            printf("%d\n", i);
         }
     }
     return 0;
 }
 
+/* List les entiers abondants jusqu'au rang n */
 int abondant(int n){
     int i;
     for (i = 1; i < (n + 1); i++) {
         if (sigma_v1(i) > 2*i){
-            printf("%d est abondant\n", i);
+            printf("%d\n", i);
         }
     }
     return 0;
