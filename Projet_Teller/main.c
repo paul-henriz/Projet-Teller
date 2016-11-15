@@ -6,11 +6,12 @@
 //  Copyright © 2016 Paul-Henri Zimmerlin. All rights reserved.
 //
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-/* Annonce des fonction */
+/* Annonce des fonctions */
 int sigma_v1();
 int teller();
 int iterated_teller();
