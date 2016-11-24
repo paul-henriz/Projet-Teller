@@ -25,6 +25,7 @@ int superabondant();
 void converg_iterated_teller();
 void min_max_iterated_teller();
 void record_iterated_teller();
+void ancetres();
 
 
 
@@ -44,6 +45,7 @@ int main(int argc, const char * argv[]) {
     printf("10. Affichers les nombres abondants jusqu'à un rang\n");
     printf("11. Affichers le min et le max de la suite\n");
     printf("12. Affichers le recordmen d'une série\n");
+    printf("13. Affichers les ancêtres d'une série\n");
 
     scanf("%d", &choix);
     if (choix == 1){
@@ -135,6 +137,11 @@ int main(int argc, const char * argv[]) {
         printf("Afficher les recordmens de la suite jusqu'à combien ?\n");
         scanf("%d", &arg);
         record_iterated_teller(arg);
+    }
+    else if (choix == 13){
+        printf("Afficher les ancêtres de la suite jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        ancetres(arg);
     }
     //superabondant(50);
     return 0;
@@ -301,6 +308,27 @@ void record_iterated_teller(int x){
             printf("Le nouveau recordmen de cette série est %d et atteint %d itérations\n", i_max, max);
         }
     }
+}
+void ancetres(int x){
+    int i, j, s, max_i = 0, max = 0;
+    for(i = 1; i <= x; i++){
+        if(i == teller(i)){
+            s = 0;
+            printf("Les ancêtres de %d sont: ", i);
+            for(j = 0; j <= i; j++){
+                if(iterated_teller(j) == i){
+                    printf("%d ", j);
+                    s++;
+                }
+            }
+            if(max < s){
+                max = s;
+                max_i = i;
+            }
+            printf("\n");
+        }
+        }
+    printf("%d est le nombre qui a le plus d'ancêtre dans la série avec %d ancêtres\n", max_i, max);
 }
 /**
 int sigma_v2(int n){
