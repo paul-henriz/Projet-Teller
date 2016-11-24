@@ -17,7 +17,7 @@ int teller();
 int iterated_teller();
 int is_prime_v1();
 int iterated_teller_1000();
-int premier();
+void premier();
 int deficient();
 int parfait();
 int abondant();
@@ -28,6 +28,9 @@ void record_iterated_teller();
 void ancetres();
 void solitude();
 void test_solitude();
+int test_primalite_v2();
+void consecutif();
+void nombre_ancetres();
 
 
 
@@ -50,6 +53,7 @@ int main(int argc, const char * argv[]) {
     printf("13. Affichers les ancêtres d'une série\n");
     printf("14. Teste la solitude d'un nombre\n");
     printf("15. Liste les nombres solitaires d'une série\n");
+    nombre_ancetres(11);
     scanf("%d", &choix);
     if (choix == 1){
         double total_time;
@@ -94,7 +98,7 @@ int main(int argc, const char * argv[]) {
         start = clock();
         printf("Afficher les nombres premiers jusqu'à combien ?\n");
         scanf("%d", &arg);
-        printf("%d", premier(arg));
+        premier(arg);
         end = clock();
         total_time = ((double) (end - start))/CLOCKS_PER_SEC;
         printf("\nExécuté en %f secondes\n", total_time);
@@ -186,8 +190,17 @@ int sigma_v1(int x){
 
 
 /* Teller calcule la somme des diviseurs d'un nombre en exluant 1 */
-
-int teller(int x){
+int teller( int nombre )
+{
+    int teller = 0;
+    
+    teller = sigma_v1(nombre) - 1 ;
+    
+    return sigma_v1(nombre) - 1;
+    
+}
+/**
+int teller_old(int x){
     int i = 2, s = 0;
     do
     {
@@ -201,7 +214,7 @@ int teller(int x){
     }while (i <= x);
     //printf("%d\n", s);
     return s;
-}
+}*/
 
 
 /* Iterated_Teller applique la fonction Teller de manière récursive */
@@ -231,14 +244,13 @@ int iterated_teller_1000(){
 }
 
 /* Liste les entiers premiers jusqu'au rang n */
-int premier(int n){
+void premier(int n){
     int i;
     for (i = 0; i < (n + 1); i++) {
         if (teller(i) == i){
             printf("%d\n", i);
         }
     }
-    return 0;
 }
 
 /* Liste les entiers déficients jusqu'au rang n */
@@ -340,7 +352,7 @@ void ancetres(int x){
             }
             printf("\n");
         }
-        }
+    }
     printf("%d est le nombre qui a le plus d'ancêtre dans la série avec %d ancêtres\n", max_i, max);
 }
 void test_solitude(int x){
@@ -363,40 +375,55 @@ void solitude(int x){
                 }
             }
             if(s == 1) printf("%d est un entier premier solitaire\n", i);
-    }
-    }
-}
-/**
-int sigma_v2(int n){
-    int tt = 0;
-    int i = 1;
-    while (i*i < n){
-        if (n%i == 0){
-            tt+=(i + n/i);
-            i+=1;
-        }
-        
-        if (i*i == n){
-            tt+=i;
         }
     }
-    return tt;
 }
 
-int superabondant(){
-    int n = 50;
-    int i;
-    int m;
-    int anterieur = 1;
-    for (i = 1; i < (n + 1); i++) {
-        m = anterieur;
-        if ((sigma_v2(m)/ m) < (sigma_v2(i)/ i)){
-            printf("%d est superabondant %d\n", i, m);
-            anterieur = i;
+void nombre_ancetres(int x){
+    int i, s;
+    if(x == teller(x)){
+        s = 0;
+        for(i = 0; i <= x; i++){
+            if(iterated_teller(i) == x){
+                s++;
+            }
         }
-        printf("On est à %d %d\n", i, m);
+        printf("Il y a %d ancêtre(s) pour %d\n", s, x);
     }
-    return 0;
 }
-*/
+
+
+/**
+ int sigma_v2(int n){
+ int tt = 0;
+ int i = 1;
+ while (i*i < n){
+ if (n%i == 0){
+ tt+=(i + n/i);
+ i+=1;
+ }
+ 
+ if (i*i == n){
+ tt+=i;
+ }
+ }
+ return tt;
+ }
+ 
+ int superabondant(){
+ int n = 50;
+ int i;
+ int m;
+ int anterieur = 1;
+ for (i = 1; i < (n + 1); i++) {
+ m = anterieur;
+ if ((sigma_v2(m)/ m) < (sigma_v2(i)/ i)){
+ printf("%d est superabondant %d\n", i, m);
+ anterieur = i;
+ }
+ printf("On est à %d %d\n", i, m);
+ }
+ return 0;
+ }
+ */
 
