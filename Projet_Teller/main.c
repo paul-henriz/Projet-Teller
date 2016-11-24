@@ -26,6 +26,8 @@ void converg_iterated_teller();
 void min_max_iterated_teller();
 void record_iterated_teller();
 void ancetres();
+void solitude();
+void test_solitude();
 
 
 
@@ -46,7 +48,8 @@ int main(int argc, const char * argv[]) {
     printf("11. Affichers le min et le max de la suite\n");
     printf("12. Affichers le recordmen d'une série\n");
     printf("13. Affichers les ancêtres d'une série\n");
-
+    printf("14. Teste la solitude d'un nombre\n");
+    printf("15. Liste les nombres solitaires d'une série\n");
     scanf("%d", &choix);
     if (choix == 1){
         double total_time;
@@ -142,6 +145,16 @@ int main(int argc, const char * argv[]) {
         printf("Afficher les ancêtres de la suite jusqu'à combien ?\n");
         scanf("%d", &arg);
         ancetres(arg);
+    }
+    else if (choix == 14){
+        printf("Quel est le nombre à vérifier ?\n");
+        scanf("%d", &arg);
+        test_solitude(arg);
+    }
+    else if (choix == 15){
+        printf("Afficher les solitaires de la suite jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        solitude(arg);
     }
     //superabondant(50);
     return 0;
@@ -329,6 +342,29 @@ void ancetres(int x){
         }
         }
     printf("%d est le nombre qui a le plus d'ancêtre dans la série avec %d ancêtres\n", max_i, max);
+}
+void test_solitude(int x){
+    int i, s;
+    for(i = 0; i <= x; i++){
+        if(iterated_teller(x) == i){
+            s++;
+        }
+    }
+    if(s == 1) printf("%d est un nombre solitaire\n", x);
+}
+void solitude(int x){
+    int i, j, s;
+    for(i = 1; i <= x; i++){
+        if(i == teller(i)){
+            s = 0;
+            for(j = 0; j <= i; j++){
+                if(iterated_teller(j) == i){
+                    s++;
+                }
+            }
+            if(s == 1) printf("%d est un entier premier solitaire\n", i);
+    }
+    }
 }
 /**
 int sigma_v2(int n){
