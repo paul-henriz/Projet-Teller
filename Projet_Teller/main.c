@@ -22,6 +22,9 @@ int deficient();
 int parfait();
 int abondant();
 int superabondant();
+void converg_iterated_teller();
+void min_max_iterated_teller();
+void record_iterated_teller();
 
 
 
@@ -38,6 +41,10 @@ int main(int argc, const char * argv[]) {
     printf("7. Affichers les nombres deficients jusqu'à un rang\n");
     printf("8. Affichers les nombres parfaits jusqu'à un rang\n");
     printf("9. Affichers les nombres abondants jusqu'à un rang\n");
+    printf("10. Affichers les nombres abondants jusqu'à un rang\n");
+    printf("11. Affichers le min et le max de la suite\n");
+    printf("12. Affichers le recordmen d'une série\n");
+
     scanf("%d", &choix);
     if (choix == 1){
         double total_time;
@@ -113,6 +120,21 @@ int main(int argc, const char * argv[]) {
         printf("Afficher les nombres abondants jusqu'à combien ?\n");
         scanf("%d", &arg);
         printf("%d", abondant(arg));
+    }
+    else if (choix == 10){
+        printf("Afficher le nombre d'itérations avant convergence de la suite jusqu'à combien ? ?\n");
+        scanf("%d", &arg);
+        converg_iterated_teller(arg);
+    }
+    else if (choix == 11){
+        printf("Afficher les extremums de la suite jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        min_max_iterated_teller(arg);
+    }
+    else if (choix == 12){
+        printf("Afficher les recordmens de la suite jusqu'à combien ?\n");
+        scanf("%d", &arg);
+        record_iterated_teller(arg);
     }
     //superabondant(50);
     return 0;
@@ -238,6 +260,49 @@ int abondant(int n){
     return 0;
 }
 
+void converg_iterated_teller(int x){
+    int i, s, j;
+    for(i = 1; i <= x; i++){
+        j = i;
+        s = 0;
+        while (j != teller(j)){
+            j = teller(j);
+            s++;
+        }
+        printf("Il aura fallu %d itération de la fonction teller pour %d avant de converger vers %d\n", s, i, j);
+    }
+}
+void min_max_iterated_teller(int x){
+    int i, s, j, min, max;
+    for(i = 1; i <= x; i++){
+        j = i;
+        s = 0;
+        max = teller(i), min = teller(i);
+        while (j != teller(j)){
+            j = teller(j);
+            if(j > max) max = j;
+            if(j < min) min = j;
+        }
+        printf("Pour %d, la fonction iterated_teller atteint %d pour maximum et %d pour minimum\n", i, max, min);
+    }
+}
+void record_iterated_teller(int x){
+    int i, s, j, max = 0, i_max = 0;
+    for(i = 1; i <= x; i++){
+        j = i;
+        s = 0;
+        while (j != teller(j)){
+            j = teller(j);
+            s++;
+        }
+        if(s > max){
+            max = s;
+            i_max = i;
+            printf("Le nouveau recordmen de cette série est %d et atteint %d itérations\n", i_max, max);
+        }
+    }
+}
+/**
 int sigma_v2(int n){
     int tt = 0;
     int i = 1;
@@ -269,3 +334,5 @@ int superabondant(){
     }
     return 0;
 }
+*/
+
