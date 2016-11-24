@@ -53,7 +53,8 @@ int main(int argc, const char * argv[]) {
     printf("13. Affichers les ancêtres d'une série\n");
     printf("14. Teste la solitude d'un nombre\n");
     printf("15. Liste les nombres solitaires d'une série\n");
-    nombre_ancetres(11);
+    printf("16. Compte les ancêtres d'un nombre\n");
+
     scanf("%d", &choix);
     if (choix == 1){
         double total_time;
@@ -159,6 +160,11 @@ int main(int argc, const char * argv[]) {
         printf("Afficher les solitaires de la suite jusqu'à combien ?\n");
         scanf("%d", &arg);
         solitude(arg);
+    }
+    else if (choix == 16){
+        printf("Calculer le nombre d'ancêtre de quel nombre ?\n");
+        scanf("%d", &arg);
+        nombre_ancetres(arg);
     }
     //superabondant(50);
     return 0;
@@ -391,6 +397,8 @@ void nombre_ancetres(int x){
         printf("Il y a %d ancêtre(s) pour %d\n", s, x);
     }
 }
+
+
 
 
 /**
