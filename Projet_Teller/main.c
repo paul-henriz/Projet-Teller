@@ -59,7 +59,7 @@ int main(int argc, const char * argv[]) {
     printf("17. Lancer la fonction P d'un nombre\n");
     printf("18. Chercher un record de la fonction P\n");
     printf("19. Calculer les ratios teller et ancêtres\n");
-
+    
     scanf("%d", &choix);
     if (choix == 1){
         double total_time;
@@ -216,7 +216,7 @@ int sigma_v1(int x){
 
 
 /* Teller calcule la somme des diviseurs d'un nombre en exluant 1 */
-int teller( int nombre )
+int teller(int nombre)
 {
     int teller = 0;
     
@@ -226,21 +226,21 @@ int teller( int nombre )
     
 }
 /**
-int teller_old(int x){
-    int i = 2, s = 0;
-    do
-    {
-        if (x % i == 0)
-        {
-            // debug
-            //printf ("%d est un diviseur de %d\n",i,x);
-            s = s + i;
-        }
-        i++;
-    }while (i <= x);
-    //printf("%d\n", s);
-    return s;
-}*/
+ int teller_old(int x){
+ int i = 2, s = 0;
+ do
+ {
+ if (x % i == 0)
+ {
+ // debug
+ //printf ("%d est un diviseur de %d\n",i,x);
+ s = s + i;
+ }
+ i++;
+ }while (i <= x);
+ //printf("%d\n", s);
+ return s;
+ }*/
 
 
 /* Iterated_Teller applique la fonction Teller de manière récursive */
@@ -272,10 +272,8 @@ int iterated_teller_1000(){
 /* Liste les entiers premiers jusqu'au rang n */
 void premier(int n){
     int i;
-    for (i = 0; i < (n + 1); i++) {
-        if (teller(i) == i){
-            printf("%d\n", i);
-        }
+    for (i = 0; i < (n + 1); i++){
+        if (teller(i) == i) printf("%d\n", i);
     }
 }
 
@@ -446,17 +444,17 @@ void fonction_p_record(int x){
     int i, a, s, max, max_a;
     max = 0, max_a = 0;
     for (a = 1;a < x; a++){
-    s = 0;
-    for(i = 1; i <= a/2; i++){
-        if(a % i == 0 && i == teller(i)){
-            s++;
+        s = 0;
+        for(i = 1; i <= a / 2; i++){
+            if(a % i == 0 && i == teller(i)){
+                s++;
+            }
+            if(s > max)
+            {
+                max = s;
+                max_a = a;
+            }
         }
-        if(s > max)
-        {
-            max = s;
-            max_a = a;
-        }
-    }
     }
     printf("Le maximum de diviseurs premiers est %d et est atteint la dernière fois pour %d\n", max, max_a);
 }
@@ -465,7 +463,11 @@ void teller_ancetre(int x){
     int c = 1;
     for(i = 1; i <= x; i++){
         // On choisit ici de n'afficher que les nombres premiers, les résultats valant 0 pour les autres nombres
-        if (i == teller(i)) printf("%d: Ratio Teller %f; ratio ancêtre %f\n", c, teller(i)/i, ancetres_unique(i)/i);
+        if (i == teller(i))
+            printf(
+                "%d: Ratio Teller %f; ratio ancêtre %f\n",
+                c, teller(i) / i, ancetres_unique(i) / i
+            );
         c++;
     }
 }
@@ -503,4 +505,3 @@ void teller_ancetre(int x){
  return 0;
  }
  */
-
