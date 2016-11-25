@@ -31,7 +31,9 @@ void test_solitude();
 int test_primalite_v2();
 void consecutif();
 void nombre_ancetres();
-
+void fonction_p();
+void fonction_p_record();
+void teller_ancetre();
 
 
 /* Déclaration de la fonction principale et du menu de sélection */
@@ -54,6 +56,9 @@ int main(int argc, const char * argv[]) {
     printf("14. Teste la solitude d'un nombre\n");
     printf("15. Liste les nombres solitaires d'une série\n");
     printf("16. Compte les ancêtres d'un nombre\n");
+    printf("17. Lancer la fonction P d'un nombre\n");
+    printf("18. Chercher un record de la fonction P\n");
+    printf("19. Calculer les ratios teller et ancêtres\n");
 
     scanf("%d", &choix);
     if (choix == 1){
@@ -165,6 +170,21 @@ int main(int argc, const char * argv[]) {
         printf("Calculer le nombre d'ancêtre de quel nombre ?\n");
         scanf("%d", &arg);
         nombre_ancetres(arg);
+    }
+    else if (choix == 17){
+        printf("Calculer P de quel nombre ?\n");
+        scanf("%d", &arg);
+        fonction_p(arg);
+    }
+    else if (choix == 18){
+        printf("Calculer P jusqu'à quel nombre ?\n");
+        scanf("%d", &arg);
+        fonction_p_record(arg);
+    }
+    else if (choix == 19){
+        printf("Calculer les ratios jusqu'à quel nombre ?\n");
+        scanf("%d", &arg);
+        teller_ancetre(arg);
     }
     //superabondant(50);
     return 0;
@@ -340,6 +360,17 @@ void record_iterated_teller(int x){
         }
     }
 }
+int ancetres_unique(int x){
+    int s = 0;
+    if(x == teller(x)){
+        for(int j = 0; j <= x; j++){
+            if(iterated_teller(j) == x){
+                s++;
+            }
+        }
+    }
+    return s;
+}
 void ancetres(int x){
     int i, j, s, max_i = 0, max = 0;
     for(i = 1; i <= x; i++){
@@ -398,8 +429,46 @@ void nombre_ancetres(int x){
     }
 }
 
+void fonction_p(int x){
+    int i, s, max;
+    max = 0;
+    s = 0;
+    for(i = 1; i <= x; i++){
+        if(x % i == 0 && i == teller(i)){
+            s++;
+        }
+        if(s > max) max = s;
+    }
+    printf("Le maximum de diviseurs premiers est %d\n", max);
+}
 
-
+void fonction_p_record(int x){
+    int i, a, s, max, max_a;
+    max = 0, max_a = 0;
+    for (a = 1;a < x; a++){
+    s = 0;
+    for(i = 1; i <= a/2; i++){
+        if(a % i == 0 && i == teller(i)){
+            s++;
+        }
+        if(s > max)
+        {
+            max = s;
+            max_a = a;
+        }
+    }
+    }
+    printf("Le maximum de diviseurs premiers est %d et est atteint la dernière fois pour %d\n", max, max_a);
+}
+void teller_ancetre(int x){
+    double i;
+    int c = 1;
+    for(i = 1; i <= x; i++){
+        // On choisit ici de n'afficher que les nombres premiers, les résultats valant 0 pour les autres nombres
+        if (i == teller(i)) printf("%d: Ratio Teller %f; ratio ancêtre %f\n", c, teller(i)/i, ancetres_unique(i)/i);
+        c++;
+    }
+}
 
 /**
  int sigma_v2(int n){
