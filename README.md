@@ -1,13 +1,15 @@
 # Projet-Teller
 
-Ce dépôt sers d'espace d'échange dans le cadre d'un projet d'algorithmie (et de programmation en C) à l'EFREI pour l'année scolaire 2016-2017.
+
 La date limite (deadline) a été fixée pour le 1er décembre.
 
-Projet réalisé exclusivement en langage C
-Pas de librairies externes utilisées à ce jour
-Les fonctions sont de type "int" afin de retourner un 0 à la fin du programme, signalant qu'il s'est exécuté jusqu'au bout.
+Projet réalisé exclusivement en langage C.
+Pas de librairies externes.
 
-Sujet disponible ici: https://drive.google.com/open?id=0B7mNn544KuPGTVZUcTUycGhsc2s
+Le projet a été mené jusqu'à la question 19 incluse, sans saut de questions.
+L'intégralité du code présenté dans le fichier main.c résulte de la conversion de nos algorithmes en langage de programmation.
 
+Le code a été testé et développé sous Mac OS Sierra (10.12.1).
+Il a également été testé sous Windows 7 / 10 (bug d'accent constaté uniquement sous Windows) et sur Ubuntu 16.
 
-Réalisations: Leticia MATMAR et Paul-Henri ZIMMERLIN
+Réalisation: Leticia MATMAR et Paul-Henri ZIMMERLIN
