@@ -39,271 +39,271 @@ void teller_ancetre();
 int main(int argc, const char * argv[]) {
     int choix, arg;
     do{
-    printf("--- Menu ---\n\n");
-    printf("1. Lancer sigma_v1\n");
-    printf("2. Lancer teller\n");
-    printf("3. Lancer iterated_teller\n");
-    printf("4. Lancer is_prime_v1\n");
-    printf("5. Lancer iterated_teller(1000)\n");
-    printf("6. Affichers les nombres premiers jusqu'à un rang\n");
-    printf("7. Affichers les nombres deficients jusqu'à un rang\n");
-    printf("8. Affichers les nombres parfaits jusqu'à un rang\n");
-    printf("9. Affichers les nombres abondants jusqu'à un rang\n");
-    printf("10. Affichers les nombres super-abondants jusqu'à un rang\n");
-    printf("11. Affichers le nombre d'itérations avant convergence d'une série\n");
-    printf("12. Affichers le min et le max de la suite\n");
-    printf("13. Affichers le recordman d'une série\n");
-    printf("14. Affichers les ancêtres d'une série\n");
-    printf("15. Teste la solitude d'un nombre\n");
-    printf("16. Liste les nombres solitaires d'une série\n");
-    printf("17. Compte les ancêtres d'un nombre\n");
-    printf("18. Lancer la fonction P d'un nombre\n");
-    printf("19. Chercher un record de la fonction P\n");
-    printf("20. Calculer les ratios teller et ancêtres\n");
-    printf("Taper 0 pour quitter le programme\n");
-    
-    scanf("%d", &choix);
-    if (choix == 1){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer la somme des diviseurs de quel nombre ?\n");
-        scanf("%d", &arg);
-        printf("La somme des diviseurs de %d vaut %d\n", arg, sigma_v1(arg));
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
+        printf("--- Menu ---\n\n");
+        printf("1. Lancer sigma_v1\n");
+        printf("2. Lancer teller\n");
+        printf("3. Lancer iterated_teller\n");
+        printf("4. Lancer is_prime_v1\n");
+        printf("5. Lancer iterated_teller(1000)\n");
+        printf("6. Affichers les nombres premiers jusqu'à un rang\n");
+        printf("7. Affichers les nombres deficients jusqu'à un rang\n");
+        printf("8. Affichers les nombres parfaits jusqu'à un rang\n");
+        printf("9. Affichers les nombres abondants jusqu'à un rang\n");
+        printf("10. Affichers les nombres super-abondants jusqu'à un rang\n");
+        printf("11. Affichers le nombre d'itérations avant convergence d'une série\n");
+        printf("12. Affichers le min et le max de la suite\n");
+        printf("13. Affichers le recordman d'une série\n");
+        printf("14. Affichers les ancêtres d'une série\n");
+        printf("15. Teste la solitude d'un nombre\n");
+        printf("16. Liste les nombres solitaires d'une série\n");
+        printf("17. Compte les ancêtres d'un nombre\n");
+        printf("18. Lancer la fonction P d'un nombre\n");
+        printf("19. Chercher un record de la fonction P\n");
+        printf("20. Calculer les ratios teller et ancêtres\n");
+        printf("Taper 0 pour quitter le programme\n");
         
-    }
-    else if (choix == 2){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer teller de quel nombre ?\n");
-        scanf("%d", &arg);
-        printf("Teller de %d vaut %d\n", arg, teller(arg));
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 3){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer teller_iterated de quel nombre ?\n");
-        scanf("%d", &arg);
-        printf("iterated_teller de %d vaut %d\n", arg, iterated_teller(arg));
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 4){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Sur quel nombre exécute-t-on le test de primalité à partir de la fonction teller ?\n");
-        scanf("%d", &arg);
-        if (is_prime_v1(arg) == 1) printf("%d est premier\n", arg);
-        else printf("%d n'est pas premier\n", arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 5){
-        double total_time;
-        clock_t start, end;
-        printf("Voici les termes de 1 à 1000 de la fonction iterated_Teller");
-        start = clock();
-        iterated_teller_1000();
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 6){
-        double total_time;
-        clock_t start, end;
-        printf("Afficher les nombres premiers jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        start = clock();
-        premier(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 7){
-        double total_time;
-        clock_t start, end;
-        printf("Afficher les nombres déficients jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        start = clock();
-        deficient(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 8){
-        double total_time;
-        clock_t start, end;
-        printf("Afficher les nombres parfaits jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        start = clock();
-        parfait(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 9){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les nombres abondants jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        abondant(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 10){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les nombres super-abondants jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        superabondant(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 11){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher le nombre d'itérations avant convergence de la suite jusqu'à combien ? ?\n");
-        scanf("%d", &arg);
-        converg_iterated_teller(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 12){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les extremums de la suite jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        min_max_iterated_teller(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 13){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les recordmans de la suite jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        record_iterated_teller(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 14){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les ancêtres de la suite jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        ancetres(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 15){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Quel est le nombre à vérifier ?\n");
-        scanf("%d", &arg);
-        test_solitude(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 16){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Afficher les solitaires de la suite jusqu'à combien ?\n");
-        scanf("%d", &arg);
-        solitude(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 17){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer le nombre d'ancêtre de quel nombre ?\n");
-        scanf("%d", &arg);
-        nombre_ancetres(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 18){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer P de quel nombre ?\n");
-        scanf("%d", &arg);
-        fonction_p(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 19){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer P jusqu'à quel nombre ?\n");
-        scanf("%d", &arg);
-        fonction_p_record(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
-    else if (choix == 20){
-        double total_time;
-        clock_t start, end;
-        start = clock();
-        printf("Calculer les ratios jusqu'à quel nombre ?\n");
-        scanf("%d", &arg);
-        teller_ancetre(arg);
-        end = clock();
-        total_time = ((double) (end - start))/CLOCKS_PER_SEC;
-        printf("\nExécuté en %f secondes\n", total_time);
-        sleep(5);
-    }
+        scanf("%d", &choix);
+        if (choix == 1){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer la somme des diviseurs de quel nombre ?\n");
+            scanf("%d", &arg);
+            printf("La somme des diviseurs de %d vaut %d\n", arg, sigma_v1(arg));
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+            
+        }
+        else if (choix == 2){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer teller de quel nombre ?\n");
+            scanf("%d", &arg);
+            printf("Teller de %d vaut %d\n", arg, teller(arg));
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 3){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer teller_iterated de quel nombre ?\n");
+            scanf("%d", &arg);
+            printf("iterated_teller de %d vaut %d\n", arg, iterated_teller(arg));
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 4){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Sur quel nombre exécute-t-on le test de primalité à partir de la fonction teller ?\n");
+            scanf("%d", &arg);
+            if (is_prime_v1(arg) == 1) printf("%d est premier\n", arg);
+            else printf("%d n'est pas premier\n", arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 5){
+            double total_time;
+            clock_t start, end;
+            printf("Voici les termes de 1 à 1000 de la fonction iterated_Teller");
+            start = clock();
+            iterated_teller_1000();
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 6){
+            double total_time;
+            clock_t start, end;
+            printf("Afficher les nombres premiers jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            start = clock();
+            premier(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 7){
+            double total_time;
+            clock_t start, end;
+            printf("Afficher les nombres déficients jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            start = clock();
+            deficient(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 8){
+            double total_time;
+            clock_t start, end;
+            printf("Afficher les nombres parfaits jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            start = clock();
+            parfait(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 9){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les nombres abondants jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            abondant(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 10){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les nombres super-abondants jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            superabondant(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 11){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher le nombre d'itérations avant convergence de la suite jusqu'à combien ? ?\n");
+            scanf("%d", &arg);
+            converg_iterated_teller(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 12){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les extremums de la suite jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            min_max_iterated_teller(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 13){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les recordmans de la suite jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            record_iterated_teller(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 14){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les ancêtres de la suite jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            ancetres(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 15){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Quel est le nombre à vérifier ?\n");
+            scanf("%d", &arg);
+            test_solitude(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 16){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Afficher les solitaires de la suite jusqu'à combien ?\n");
+            scanf("%d", &arg);
+            solitude(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 17){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer le nombre d'ancêtre de quel nombre ?\n");
+            scanf("%d", &arg);
+            nombre_ancetres(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 18){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer P de quel nombre ?\n");
+            scanf("%d", &arg);
+            fonction_p(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 19){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer P jusqu'à quel nombre ?\n");
+            scanf("%d", &arg);
+            fonction_p_record(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
+        else if (choix == 20){
+            double total_time;
+            clock_t start, end;
+            start = clock();
+            printf("Calculer les ratios jusqu'à quel nombre ?\n");
+            scanf("%d", &arg);
+            teller_ancetre(arg);
+            end = clock();
+            total_time = ((double) (end - start))/CLOCKS_PER_SEC;
+            printf("\nExécuté en %f secondes\n", total_time);
+            sleep(5);
+        }
     }while(choix != 0);
     return 0;
     
@@ -588,10 +588,7 @@ void teller_ancetre(int x){
     for(i = 1; i <= x; i++){
         // Test: On choisit ici de n'afficher que les nombres premiers, les résultats valant 0 pour les autres nombres
         //if (i == teller(i))
-            printf(
-                "%d: Ratio Teller %f; ratio ancêtre %f\n",
-                c, teller(i) / i, ancetres_unique(i) / i
-            );
+        printf("%d: Ratio Teller %f; ratio ancêtre %f\n", c, teller(i) / i, ancetres_unique(i) / i);
         c++;
     }
 }
