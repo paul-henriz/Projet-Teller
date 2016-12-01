@@ -2,6 +2,8 @@
 //  main.c
 //  Projet_Teller
 //
+//  Leticia MATMAR et Paul-Henri ZIMMERLIN
+//
 
 
 #include <stdio.h>
@@ -60,8 +62,8 @@ int main(int argc, const char * argv[]) {
         printf("19. Lancer la fonction P d'un nombre\n");
         printf("20. Chercher un record de la fonction P\n");
         printf("21. Calculer les ratios teller et ancêtres\n");
-        printf("Saisir 0 pour quitter le programme\n");
-        
+        printf("Saisir 0 pour quitter le programme\n\n\n");
+        printf("Quelle fonction souhaitez-vous lancer ?\n");
         scanf("%d", &choix);
         if (choix == 1){
             double total_time;
